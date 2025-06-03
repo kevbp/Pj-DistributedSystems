@@ -1,0 +1,55 @@
+body {
+    background-color: #9bd8e3 ;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Título centrado */
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    color: #0097a7;
+}
+
+/* Centrado de la tabla */
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 80%;
+    background-color: white;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Cabecera de tabla */
+th {
+    background-color: #0097a7;
+    color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Filas de la tabla */
+td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    color: #333;
+}
+
+/* Zebra effect */
+tr:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+.back-button{
+    background-color: #009688;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
