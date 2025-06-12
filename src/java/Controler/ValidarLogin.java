@@ -4,7 +4,6 @@ import Entidades.usuarios;
 import Utilitarios.Encriptacion;
 import conexion.conexionBD;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,7 +21,7 @@ public class ValidarLogin extends HttpServlet {
             throws ServletException, IOException {
 //       response.setContentType("text/html;charset=UTF-8");
 //       String user, pass;
-//       user = request.getParameter("txtUsuario");
+//       user = request.getParalgunos metodos nuevos.ameter("txtUsuario");
 //       pass= request.getParameter("txtClave");
 //       //user=admin, clave=1234
 //       if(user.equals("admin")&&pass.equals("1234")){
@@ -41,7 +40,7 @@ public class ValidarLogin extends HttpServlet {
 //         try {
 //            conexionBD bd= new conexionBD();
 //            conn= bd.Connected();
-//            String sql= "SELECT * FROM t_usuario WHERE IdUsuario=? AND Passwd=?";
+//            String sql= "SELECT * FROM t_usuario WHERE IdUsuario=? AND Passwd=?",.;
 //            PreparedStatement ps=conn.prepareStatement(sql);
 //            ps.setString(1, usuario);
 //            ps.setString(2, clave);
@@ -75,7 +74,8 @@ public class ValidarLogin extends HttpServlet {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                usuarios nuser = new usuarios(usuario, claveEncriptada);
+                String perfUsuario = rs.getString("perfilUsuario");
+                usuarios nuser = new usuarios(usuario, claveEncriptada, perfUsuario);
                 HttpSession session = request.getSession();
                 session.setAttribute("user", nuser);
                 request.getRequestDispatcher("index.jsp").forward(request, response);

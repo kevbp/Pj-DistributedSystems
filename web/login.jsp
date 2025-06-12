@@ -25,9 +25,9 @@
                         <input type="password" class="form-control" name="txtClave" id="txtClave" placeholder="Contraseña" maxlength="30" required>
                         <label for="txtClave">Contraseña</label>
                     </div>
-                    
+
                     <div class="pb-3"></div>
-                    
+
                     <div class="d-grid gap-2 mx-auto">
                         <button type="submit" class="btn btn-primary" name="validar" value="Aceptar">Ingresar</button>
                     </div>

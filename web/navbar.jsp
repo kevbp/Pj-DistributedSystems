@@ -1,6 +1,8 @@
+<%@page import="Entidades.usuarios"%>
 <%@ page session="true" %>
 <%
-    String perfil = (String) session.getAttribute("perfil");
+    usuarios nuser = (usuarios) session.getAttribute("nuser");
+    String perfil = (nuser != null) ? nuser.getPerfil() : "";
 %>
 
 <nav class="navbar navbar-expand-lg navbar-white bg-white p-3 header-nav">
@@ -18,14 +20,13 @@
             </div>
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1">
-                    <% if ("empleado".equals(perfil)) { %>
                     <li class="nav-item">
                         <a class="nav-link mx-1 my-1" href="Solicitud.jsp">Contratar</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active mx-1 my-1 fw-semibold" href="Cliente\Clientes.jsp">Clientes</a>
                     </li>
-                     <% } else if ("Administrador".equals(perfil)) { %>
+
                     <li class="nav-item">
                         <a class="nav-link mx-1 my-1" href="registrarUsuario.jsp">Gestión de Usuarios</a>
                     </li>
@@ -38,7 +39,6 @@
                     <li class="nav-item">
                         <a class="nav-link mx-1 my-1" href="Pedidos.jsp">Pedidos</a>
                     </li>
-                    <% } %>
 
                     <li class="nav-item dropdown mx-1 my-1">
                         <div class="btn-group btn-primary">
@@ -46,13 +46,11 @@
                                 Mi perfil
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end text-center">
-                                -<% if ("cliente".equals(perfil)) { %>
                                 <li>
                                     <form name="submitForm" action="../Cliente" method="POST">
                                         <a class="dropdown-item" href="javascript:document.submitForm.submit()">Cambiar a proveedor</a>
                                     </form>
                                 </li>
-                                <% }%>
                                 <li>
                                     <form name="cerrar" action="../CerrarSesion" method="POST">
                                         <a class="dropdown-item" href="javascript:document.cerrar.submit()">Cerrar Sesión</a>

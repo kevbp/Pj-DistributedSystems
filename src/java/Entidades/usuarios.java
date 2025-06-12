@@ -12,10 +12,15 @@ package Entidades;
 public class usuarios {
     private String codUsuario;
     private String pass;
+    private String perfil;
 
-    public usuarios(String codUsuario, String pass) {
+    public usuarios() {
+    }
+
+    public usuarios(String codUsuario, String pass, String perfil) {
         this.codUsuario = codUsuario;
         this.pass = pass;
+        this.perfil = perfil;
     }
 
     public String getCodUsuario() {
@@ -32,6 +37,14 @@ public class usuarios {
 
     public void setPass(String pass) {
         this.pass = pass;
+    }
+
+    public String getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(String perfil) {
+        this.perfil = perfil;
     }
     
 }

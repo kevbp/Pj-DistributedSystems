@@ -14,22 +14,14 @@
         <link rel="stylesheet" href="styles\styles.css">
         <title>Menú Principal</title>
     </head>
-    
+    <%@ include file="navbar.jsp"%>"
     <body class="text-center">
-        <h1>Menú Principal</h1>
-        <div class="navbar">
-            <a href="registrarUsuario.jsp">Gestión de Usuarios</a>
-            <a href="Clientes.jsp">Clientes</a>
-            <a href="Productos.jsp">Producto</a>
-            <a href="Pedidos.jsp">Pedidos</a>
-        </div>
         <div class="content">
             <p>Bienvenido al sistema de gestión. Selecciona una opción del menú para continuar.</p>
-
             <div class="logout">
                 <a href="CerrarSesion">Cerrar Sesión</a>
             </div>
         </div>
-
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     </body>
 </html>

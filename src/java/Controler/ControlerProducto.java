@@ -71,89 +71,89 @@ public class ControlerProducto extends HttpServlet {
         switch (Op) {
             case "Listar":
                 try {
-                String sql = "SELECT * FROM t_producto";
-                ps = conn.prepareStatement(sql);
-                rs = ps.executeQuery();
-                while (rs.next()) {
-                    producto prod = new producto();
-                    prod.setId(rs.getString("Id_Prod"));
-                    prod.setDescripcion(rs.getString("Descripcion"));
-                    prod.setCosto(rs.getString("Costo"));
-                    prod.setPrecio(rs.getString("Precio"));
-                    prod.setCantidad(rs.getString("Cantidad"));
-                    Lista.add(prod);
+                    String sql = "SELECT * FROM t_producto";
+                    ps = conn.prepareStatement(sql);
+                    rs = ps.executeQuery();
+                    while (rs.next()) {
+                        producto prod = new producto();
+                        prod.setId(rs.getString("Id_Prod"));
+                        prod.setDescripcion(rs.getString("Descripcion"));
+                        prod.setCosto(rs.getString("Costo"));
+                        prod.setPrecio(rs.getString("Precio"));
+                        prod.setCantidad(rs.getString("Cantidad"));
+                        Lista.add(prod);
+                    }
+                    request.setAttribute("Lista", Lista);
+                    request.getRequestDispatcher("listarProducto.jsp").forward(request, response);
+                } catch (SQLException ex) {
+                    System.out.println("Error de SQL..." + ex.getMessage());
+                } finally {
+                    conBD.Discconet();
                 }
-                request.setAttribute("Lista", Lista);
-                request.getRequestDispatcher("listarProducto.jsp").forward(request, response);
-            } catch (SQLException ex) {
-                System.out.println("Error de SQL..." + ex.getMessage());
-            } finally {
-                conBD.Discconet();
-            }
-            break;
+                break;
             case "Consultar":
                 try {
-                String Id = request.getParameter("Id");
-                String sql = "select * from t_producto where Id_Prod=?";
-                ps = conn.prepareStatement(sql);
-                ps.setString(1, Id);
-                rs = ps.executeQuery();
-                producto prod = new producto();
-                while (rs.next()) {
-                    prod.setId(rs.getString("Id_Prod"));
-                    prod.setDescripcion(rs.getString("Descripcion"));
-                    prod.setCosto(rs.getString("Costo"));
-                    prod.setPrecio(rs.getString("Precio"));
-                    prod.setCantidad(rs.getString("Cantidad"));
-                    Lista.add(prod);
+                    String Id = request.getParameter("Id");
+                    String sql = "select * from t_producto where Id_Prod=?";
+                    ps = conn.prepareStatement(sql);
+                    ps.setString(1, Id);
+                    rs = ps.executeQuery();
+                    producto prod = new producto();
+                    while (rs.next()) {
+                        prod.setId(rs.getString("Id_Prod"));
+                        prod.setDescripcion(rs.getString("Descripcion"));
+                        prod.setCosto(rs.getString("Costo"));
+                        prod.setPrecio(rs.getString("Precio"));
+                        prod.setCantidad(rs.getString("Cantidad"));
+                        Lista.add(prod);
+                    }
+                    request.setAttribute("Lista", Lista);
+                    request.getRequestDispatcher("consultarProducto.jsp").forward(request, response);
+                } catch (SQLException ex) {
+                    System.out.println("Error de SQL..." + ex.getMessage());
+                } finally {
+                    conBD.Discconet();
                 }
-                request.setAttribute("Lista", Lista);
-                request.getRequestDispatcher("consultarProducto.jsp").forward(request, response);
-            } catch (SQLException ex) {
-                System.out.println("Error de SQL..." + ex.getMessage());
-            } finally {
-                conBD.Discconet();
-            }
-            break;
+                break;
             case "Modificar":
                 try {
-                String Id = request.getParameter("Id");
-                String sql = "select * from t_producto where Id_Prod=?";
-                ps = conn.prepareStatement(sql);
-                ps.setString(1, Id);
-                rs = ps.executeQuery();
-                producto prod = new producto();
-                while (rs.next()) {
-                    prod.setId(rs.getString("Id_Prod"));
-                    prod.setDescripcion(rs.getString("Descripcion"));
-                    prod.setCosto(rs.getString("Costo"));
-                    prod.setPrecio(rs.getString("Precio"));
-                    prod.setCantidad(rs.getString("Cantidad"));
-                    Lista.add(prod);
+                    String Id = request.getParameter("Id");
+                    String sql = "select * from t_producto where Id_Prod=?";
+                    ps = conn.prepareStatement(sql);
+                    ps.setString(1, Id);
+                    rs = ps.executeQuery();
+                    producto prod = new producto();
+                    while (rs.next()) {
+                        prod.setId(rs.getString("Id_Prod"));
+                        prod.setDescripcion(rs.getString("Descripcion"));
+                        prod.setCosto(rs.getString("Costo"));
+                        prod.setPrecio(rs.getString("Precio"));
+                        prod.setCantidad(rs.getString("Cantidad"));
+                        Lista.add(prod);
+                    }
+                    request.setAttribute("Lista", Lista);
+                    request.getRequestDispatcher("modificarProducto.jsp").forward(request, response);
+                } catch (SQLException ex) {
+                    System.out.println("Error de SQL..." + ex.getMessage());
+                } finally {
+                    conBD.Discconet();
                 }
-                request.setAttribute("Lista", Lista);
-                request.getRequestDispatcher("modificarProducto.jsp").forward(request, response);
-            } catch (SQLException ex) {
-                System.out.println("Error de SQL..." + ex.getMessage());
-            } finally {
-                conBD.Discconet();
-            }
 
-            break;
+                break;
             case "Eliminar":
                 try {
-                String Id = request.getParameter("Id");
-                String sql = "delete from t_producto where Id_Prod=?";
-                ps = conn.prepareStatement(sql);
-                ps.setString(1, Id);
-                ps.executeUpdate();
-                request.getRequestDispatcher("Productos.jsp").forward(request, response);
-            } catch (SQLException ex) {
-                System.out.println("Error de SQL..." + ex.getMessage());
-            } finally {
-                conBD.Discconet();
-            }
-            break;
+                    String Id = request.getParameter("Id");
+                    String sql = "delete from t_producto where Id_Prod=?";
+                    ps = conn.prepareStatement(sql);
+                    ps.setString(1, Id);
+                    ps.executeUpdate();
+                    request.getRequestDispatcher("Productos.jsp").forward(request, response);
+                } catch (SQLException ex) {
+                    System.out.println("Error de SQL..." + ex.getMessage());
+                } finally {
+                    conBD.Discconet();
+                }
+                break;
             case "Nuevo":
                 request.getRequestDispatcher("nuevoProducto.jsp").forward(request, response);
                 break;
