@@ -54,7 +54,7 @@
             </table> 
         </div>
         <div style="text-align: center;">
-            <a class="back-button" href="Clientes.jsp">Regresar</a>
+            <a class="back-button" href="Cliente/Clientes.jsp">Regresar</a>
         </div>
     </body>
 </html>

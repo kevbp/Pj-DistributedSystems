@@ -77,6 +77,7 @@ public class ValidarLogin extends HttpServlet {
                 String perfUsuario = rs.getString("perfilUsuario");
                 usuarios nuser = new usuarios(usuario, perfUsuario);
                 HttpSession session = request.getSession();
+                session.setMaxInactiveInterval(30);
                 session.setAttribute("usuario", nuser);
                 response.sendRedirect("index.jsp");
 //                request.getRequestDispatcher("index.jsp").forward(request, response);

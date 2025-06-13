@@ -49,14 +49,7 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end text-center">
                                 <li>
-                                    <form name="submitForm" action="../Cliente" method="POST">
-                                        <a class="dropdown-item" href="javascript:document.submitForm.submit()">Cambiar a proveedor</a>
-                                    </form>
-                                </li>
-                                <li>
-                                    <form name="cerrar" action="../CerrarSesion" method="POST">
-                                        <a class="dropdown-item" href="javascript:document.cerrar.submit()">Cerrar Sesión</a>
-                                    </form>
+                                    <a class="dropdown-item" href="CerrarSesion">Cerrar Sesión</a>
                                 </li>
                             </ul>
                         </div>
