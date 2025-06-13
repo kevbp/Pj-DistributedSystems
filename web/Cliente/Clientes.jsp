@@ -1,8 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     HttpSession sesion = request.getSession(false);
-    if (sesion == null || sesion.getAttribute("user") == null) {
-        response.sendRedirect("login.jsp");
+    if (sesion == null || sesion.getAttribute("usuario") == null) {
+        response.sendRedirect("../login.jsp");
         return;
     }
 %>
@@ -69,20 +69,14 @@
         }
     </style>
 </head>
-<%
-    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");  
-    if (session.getAttribute("user") == null) {
-        response.sendRedirect("login.jsp");
-    }
-%>
 <body>
     <h1>Menú de Clientes</h1>
     <div class="content">
-        <p><a href="ControlerCliente?Op=Listar">Listar Clientes</a></p>
-        <p><a href="ControlerCliente?Op=Nuevo">Nuevo Cliente</a></p>
+        <p><a href="/ControlerCliente?Op=Listar">Listar Clientes</a></p>
+        <p><a href="/ControlerCliente?Op=Nuevo">Nuevo Cliente</a></p>
     </div>
     <div style="text-align: center;">
-        <a class="back-button" href="index.jsp">Volver al menú principal</a>
+        <a class="back-button" href="../index.jsp">Volver al menú principal</a>
     </div>
 </body>
 </html>

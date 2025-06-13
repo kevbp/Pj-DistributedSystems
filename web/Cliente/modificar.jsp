@@ -1,10 +1,11 @@
 <%
     HttpSession sesion = request.getSession(false);
-    if (sesion == null || sesion.getAttribute("user") == null) {
+    if (sesion == null || sesion.getAttribute("usuario") == null) {
         response.sendRedirect("login.jsp");
         return;
     }
 %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.util.List"%>
 <%@page import="Entidades.cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -97,6 +98,9 @@
     </head>
     <body>
         <div class="container">
+            <%
+                cliente cliente = (cliente) Lista.get(0);
+            %>
             <h1>Modifica Clientes</h1>
             <form action="ControlerCliente" method="post">   
                 <c:forEach var="campo" items="${Lista}">
@@ -108,7 +112,7 @@
                     <input type="text" name="nombres" value="${campo.nombres}">
                     
                     <label>DNI</label>
-                    <input type="text" name="DNI" value="${campo.DNI}">
+                    <input type="text" name="DNI" value="${campo.dni}">
                     
                     <label>Dirección</label>
                     <input type="text" name="direccion" value="${campo.direccion}">
@@ -121,7 +125,7 @@
                 </c:forEach>
                 <div class="button-container">
                     <input type="submit" name="modificar" value="Modificar"> 
-                    <a class="cancel-button" href="Clientes.jsp">Regresar</a>
+                    <a class="cancel-button" href="Cliente/Clientes.jsp">Regresar</a>
                 </div>
             </form>
         </div>

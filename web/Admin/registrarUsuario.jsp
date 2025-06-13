@@ -1,6 +1,6 @@
 <%
     HttpSession sesion = request.getSession(false);
-    if (sesion == null || sesion.getAttribute("user") == null) {
+    if (sesion == null || sesion.getAttribute("usuario") == null) {
         response.sendRedirect("login.jsp");
         return;
     }
@@ -82,7 +82,7 @@
     <body>
         <div class="login-container">
             <h1>Registrar nuevo Usuario</h1>
-            <form action="Registrar" method="post">   
+            <form action="/Registrar" method="post">   
                 <div class="form-group">
                     <label for="txtUsuario">Username</label>
                     <input type="text" id="txtUsuario" name="txtUsuario" required>

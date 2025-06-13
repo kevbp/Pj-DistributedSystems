@@ -1,7 +1,7 @@
 <%@page import="Entidades.usuarios"%>
 <%@ page session="true"%>
 <%
-    usuarios nuser = (usuarios) session.getAttribute("nuser");
+    usuarios nuser = (usuarios) session.getAttribute("usuario");
     String perfil;
     if (nuser != null) {
         perfil = nuser.getPerfil();
@@ -25,22 +25,23 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1">
                     <%
-                        if (perfil.equals("Administrador")){
+                        if (perfil.equals("Administrador")) {
                     %>
                     <li class="nav-item">
-                        <a class="nav-link mx-1 my-1 my-1 fw-semibold" href="Admin\registrarUsuario.jsp">Gestión de Usuarios</a>
+                        <a class="nav-link mx-1 my-1 my-1 fw-semibold" href="Admin/registrarUsuario.jsp">Gestión de Usuarios</a>
                     </li>
-                    <%} else if (perfil.equals("Empleado")||perfil.equals("Administrador")){%>
+                    <%}
+                        if (perfil.equals("Empleado") || perfil.equals("Administrador")) {%>
                     <li class="nav-item">
-                        <a class="nav-link active mx-1" href="Cliente\Clientes.jsp">Clientes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link mx-1 my-1" href="Producto\Productos.jsp">Producto</a>
+                        <a class="nav-link mx-1 my-1" href="Cliente/Clientes.jsp">Clientes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-1 my-1" href="Pedido\Pedidos.jsp">Pedidos</a>
+                        <a class="nav-link mx-1 my-1" href="Producto/Productos.jsp">Producto</a>
                     </li>
-                    <%}%>
+                    <li class="nav-item">
+                        <a class="nav-link mx-1 my-1" href="Pedido/Pedidos.jsp">Pedidos</a>
+                    </li>
+                    <%};%>
                     <li class="nav-item dropdown mx-1 my-1">
                         <div class="btn-group btn-primary">
                             <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">

@@ -64,7 +64,7 @@ public class ControlerCliente extends HttpServlet {
         //processRequest(request, response);
         
         String Op =request.getParameter("Op");
-        ArrayList<cliente> Lista= new ArrayList<cliente>();
+        ArrayList<cliente> Lista= new ArrayList<>();
         conexionBD conBD = new conexionBD();
         Connection conn = conBD.Connected();
         PreparedStatement ps;
@@ -76,7 +76,7 @@ public class ControlerCliente extends HttpServlet {
                     ps= conn.prepareStatement(sql);
                     rs= ps.executeQuery();
                     while(rs.next()){
-                        cliente client=new cliente();
+                        cliente client = new cliente();
                         client.setId(rs.getString("Id_Cliente"));
                         client.setApellidos(rs.getString("Apellidos"));
                         client.setNombres(rs.getString("Nombres"));
@@ -87,7 +87,7 @@ public class ControlerCliente extends HttpServlet {
                         Lista.add(client);
                     }
                     request.setAttribute("Lista", Lista);
-                    request.getRequestDispatcher("listar.jsp").forward(request, response);
+                    request.getRequestDispatcher("Cliente/listar.jsp").forward(request, response);
                 }catch(SQLException ex){
                     System.out.println("Error de SQL..."+ex.getMessage());
                 } finally{
@@ -113,12 +113,12 @@ public class ControlerCliente extends HttpServlet {
                         Lista.add(client);
                     }
                     request.setAttribute("Lista", Lista);
-                    request.getRequestDispatcher("consultar.jsp").forward(request, response);
+                    request.getRequestDispatcher("Cliente/consultar.jsp").forward(request, response);
                 }catch(SQLException ex){
                     System.out.println("Error de SQL..."+ex.getMessage());
                 } finally{
                     conBD.Discconet();
-                }                
+                }
                 break;    
             case "Modificar":
                 try{
@@ -127,7 +127,7 @@ public class ControlerCliente extends HttpServlet {
                     ps= conn.prepareStatement(sql);
                     ps.setString(1, Id);
                     rs= ps.executeQuery();
-                    cliente client=new cliente();
+                    cliente client = new cliente(); 
                     while(rs.next()){
                         client.setId(rs.getString("Id_Cliente"));
                         client.setApellidos(rs.getString("Apellidos"));
@@ -139,7 +139,7 @@ public class ControlerCliente extends HttpServlet {
                         Lista.add(client);
                     }
                     request.setAttribute("Lista", Lista);
-                    request.getRequestDispatcher("modificar.jsp").forward(request, response);
+                    request.getRequestDispatcher("Cliente/modificar.jsp").forward(request, response);
                 }catch(SQLException ex){
                     System.out.println("Error de SQL..."+ex.getMessage());
                 } finally{
@@ -154,7 +154,7 @@ public class ControlerCliente extends HttpServlet {
                     ps= conn.prepareStatement(sql);
                     ps.setString(1, Id);
                     ps.executeUpdate();
-                    request.getRequestDispatcher("Clientes.jsp").forward(request, response);
+                    request.getRequestDispatcher("Cliente/Clientes.jsp").forward(request, response);
                 }catch(SQLException ex){
                     System.out.println("Error de SQL..."+ex.getMessage());
                 } finally{
@@ -179,12 +179,12 @@ public class ControlerCliente extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        String Id =request.getParameter("Id");       
-        String Apellidos=request.getParameter("apellidos"); 
-        String Nombres=request.getParameter("nombres"); 
+        String Id =request.getParameter("Id");
+        String Apellidos=request.getParameter("apellidos");
+        String Nombres=request.getParameter("nombres");
         String DNI=request.getParameter("DNI");
-        String Direccion=request.getParameter("direccion"); 
-        String Telefono=request.getParameter("telefono"); 
+        String Direccion=request.getParameter("direccion");
+        String Telefono=request.getParameter("telefono");
         String Movil=request.getParameter("movil"); 
         cliente client=new cliente();
         
@@ -194,12 +194,12 @@ public class ControlerCliente extends HttpServlet {
         client.setDni(DNI);
         client.setDireccion(Direccion);
         client.setTelefono(Telefono);
-        client.setMovil(Movil);     
+        client.setMovil(Movil);
         
         conexionBD conBD = new conexionBD();
         Connection conn = conBD.Connected();
         PreparedStatement ps;
-        ResultSet rs;        
+        ResultSet rs;
         if(Id.isEmpty()){
             String sql_new="select max(Id_Cliente) Id_Cliente from t_cliente";
             String sql="insert into t_cliente(Id_Cliente, apellidos, nombres, DNI, direccion, telefono, movil) values(?, ?, ?, ?, ?, ?, ?)";
@@ -262,7 +262,7 @@ public class ControlerCliente extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    private String newCod(java.lang.String pCodigo) {
+    private String newCod(String pCodigo) {
         // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
         // If the calling of port operations may lead to race condition some synchronization is required.
         //com.service.util.WebServiceUtil port = service.getWebServiceUtilPort();

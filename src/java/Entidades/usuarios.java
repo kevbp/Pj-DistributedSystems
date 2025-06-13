@@ -11,6 +11,7 @@ package Entidades;
  */
 public class usuarios {
     private String codUsuario;
+    private String nombre;
     private String pass;
     private String perfil;
 
@@ -44,6 +45,14 @@ public class usuarios {
 
     public void setPerfil(String perfil) {
         this.perfil = perfil;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     
 }

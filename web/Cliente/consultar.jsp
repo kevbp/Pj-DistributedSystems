@@ -1,6 +1,6 @@
 <%
     HttpSession sesion = request.getSession(false);
-    if (sesion == null || sesion.getAttribute("user") == null) {
+    if (sesion == null || sesion.getAttribute("usuario") == null) {
         response.sendRedirect("login.jsp");
         return;
     }
@@ -59,14 +59,14 @@
     </style>
 <body>
 <% 
-    cliente client = (cliente) request.getAttribute("client");
+    cliente client = (cliente) Lista.get(0);
     if (client != null) {
 %>
         <h1>Información del Cliente</h1>
         <p>ID: <%= client.getId() %></p>
         <p>Apellidos: <%= client.getApellidos() %></p>
         <p>Nombres: <%= client.getNombres() %></p>
-        <p>DNI: <%= client.getDNI() %></p>
+        <p>DNI: <%= client.getDni() %></p>
         <p>Dirección: <%= client.getDireccion() %></p>
         <p>Teléfono: <%= client.getTelefono() %></p>
         <p>Móvil: <%= client.getMovil() %></p>
@@ -77,6 +77,6 @@
 <% 
     } 
 %>
-    <a href="Clientes.jsp">Volver a la lista de clientes</a>
+    <a href="Cliente/Clientes.jsp">Volver a la lista de clientes</a>
 </body>
 </html>

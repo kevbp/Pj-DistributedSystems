@@ -1,6 +1,6 @@
 <%
     HttpSession sesion = request.getSession(false);
-    if (sesion == null || sesion.getAttribute("user") == null) {
+    if (sesion == null || sesion.getAttribute("usuario") == null) {
         response.sendRedirect("login.jsp");
         return;
     }
@@ -19,7 +19,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Listado de Clientes</title>
-        <link href="${pageContext.servletContext.contextPath}/style.css" rel="stylesheet">
+        
     </head>
     <body>
         <h1>Listado de Clientes</h1>
@@ -35,7 +35,6 @@
                     <th>Movil</th>
                     <th></th>
                 </tr>
-
                 <c:forEach var="campo" items="${Lista}">
                     <tr>
                         <td>${campo.id}</td>
