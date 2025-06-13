@@ -17,12 +17,11 @@ public class usuarios {
     public usuarios() {
     }
 
-    public usuarios(String codUsuario, String pass, String perfil) {
+    public usuarios(String codUsuario, String perfil) {
         this.codUsuario = codUsuario;
-        this.pass = pass;
         this.perfil = perfil;
     }
-
+    
     public String getCodUsuario() {
         return codUsuario;
     }

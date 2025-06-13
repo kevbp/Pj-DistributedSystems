@@ -1,5 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%
+    HttpSession sesion = request.getSession();
+    if (sesion == null || sesion.getAttribute("usuario") == null) {
+        response.sendRedirect("login.jsp");
+        return;
+    }
+%>
 <%-- 
     Document   : index
     Created on : 08/05/2025, 07:15 PM

@@ -2,7 +2,12 @@
 <%@ page session="true" %>
 <%
     usuarios nuser = (usuarios) session.getAttribute("nuser");
-    String perfil = (nuser != null) ? nuser.getPerfil() : "";
+    String perfil;
+    if (nuser != null) {
+        perfil = nuser.getPerfil();
+    } else {
+        perfil = "";
+    }
 %>
 
 <nav class="navbar navbar-expand-lg navbar-white bg-white p-3 header-nav">
@@ -20,26 +25,23 @@
             </div>
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1">
+                    <%
+                        if (perfil.equals("Administrador")){
+                    %>
                     <li class="nav-item">
-                        <a class="nav-link mx-1 my-1" href="Solicitud.jsp">Contratar</a>
+                        <a class="nav-link mx-1 my-1 my-1 fw-semibold" href="Admin\registrarUsuario.jsp">Gestión de Usuarios</a>
+                    </li>
+                    <%} else if (perfil.equals("Empleado")||perfil.equals("Administrador")){%>
+                    <li class="nav-item">
+                        <a class="nav-link active mx-1" href="Cliente\Clientes.jsp">Clientes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active mx-1 my-1 fw-semibold" href="Cliente\Clientes.jsp">Clientes</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link mx-1 my-1" href="registrarUsuario.jsp">Gestión de Usuarios</a>
+                        <a class="nav-link mx-1 my-1" href="Producto\Productos.jsp">Producto</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-1 my-1" href="Clientes.jsp">Clientes</a>
+                        <a class="nav-link mx-1 my-1" href="Pedido\Pedidos.jsp">Pedidos</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link mx-1 my-1" href="Productos.jsp">Producto</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link mx-1 my-1" href="Pedidos.jsp">Pedidos</a>
-                    </li>
-
+                    <%}%>
                     <li class="nav-item dropdown mx-1 my-1">
                         <div class="btn-group btn-primary">
                             <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">

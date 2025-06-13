@@ -75,12 +75,13 @@ public class ValidarLogin extends HttpServlet {
 
             if (rs.next()) {
                 String perfUsuario = rs.getString("perfilUsuario");
-                usuarios nuser = new usuarios(usuario, claveEncriptada, perfUsuario);
+                usuarios nuser = new usuarios(usuario, perfUsuario);
                 HttpSession session = request.getSession();
-                session.setAttribute("user", nuser);
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                session.setAttribute("usuario", nuser);
+                response.sendRedirect("index.jsp");
+//                request.getRequestDispatcher("index.jsp").forward(request, response);
             } else {
-                request.getRequestDispatcher("ErrorLogin.jsp").forward(request, response);
+                response.sendRedirect("ErrorLogin.jsp");
             }
         } catch (Exception e) {
             e.printStackTrace();
