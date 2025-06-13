@@ -1,5 +1,5 @@
 <%@page import="Entidades.usuarios"%>
-<%@ page session="true" %>
+<%@ page session="true"%>
 <%
     usuarios nuser = (usuarios) session.getAttribute("nuser");
     String perfil;
@@ -9,7 +9,6 @@
         perfil = "";
     }
 %>
-
 <nav class="navbar navbar-expand-lg navbar-white bg-white p-3 header-nav">
     <div class="container-fluid px-3">
         <a href="" class="text-decoration-none color-logo  pe-5">
