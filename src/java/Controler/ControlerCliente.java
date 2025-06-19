@@ -162,7 +162,7 @@ public class ControlerCliente extends HttpServlet {
                 }                          
                 break;
             case "Nuevo":
-                request.getRequestDispatcher("nuevo.jsp").forward(request, response);
+                request.getRequestDispatcher("Cliente/nuevo.jsp").forward(request, response);
                 break;
         }        
     }
@@ -249,7 +249,7 @@ public class ControlerCliente extends HttpServlet {
             }               
         }
         
-        response.sendRedirect("Clientes.jsp");       
+        response.sendRedirect("Cliente/Clientes.jsp");       
         
     }
 

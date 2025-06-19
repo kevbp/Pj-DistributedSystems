@@ -1,7 +1,8 @@
+<%@page import="Entidades.pedido"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     HttpSession sesion = request.getSession(false);
-    if (sesion == null || sesion.getAttribute("user") == null) {
+    if (sesion == null || sesion.getAttribute("usuario") == null) {
         response.sendRedirect("login.jsp");
         return;
     }
@@ -16,7 +17,7 @@
 <%@page import="Entidades.detallePedido"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    List<detallePedido> Lista= (List<detallePedido>) request.getAttribute("Lista");
+    List<detallePedido> Lista = (List<detallePedido>) request.getAttribute("Lista");
 %>
 <!DOCTYPE html>
 <html>
@@ -27,7 +28,7 @@
     <body>
         <h1>Consulta de Pedido</h1>
         <table border="1">
-              
+
             <c:forEach var="campo" items="${Lista}">
                 <tr>
                     <td>Id Pedido</td>
@@ -55,6 +56,5 @@
                 </tr>                
             </c:forEach>
         </table>
-
     </body>
 </html>

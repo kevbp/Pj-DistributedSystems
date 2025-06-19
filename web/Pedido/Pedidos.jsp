@@ -1,7 +1,7 @@
 <%
     HttpSession sesion = request.getSession(false);
-    if (sesion == null || sesion.getAttribute("user") == null) {
-        response.sendRedirect("login.jsp");
+    if (sesion == null || sesion.getAttribute("usuario") == null) {
+        response.sendRedirect("../login.jsp");
         return;
     }
 %><%-- 
@@ -71,20 +71,15 @@
         }
     </style>
 </head>
-<%  response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");  
-            if (session.getAttribute("user")==null){
-                response.sendRedirect("login.jsp");
-            }
-    %>
 <body>
     <div class="content">
         <h1>Menú Pedido</h1>
-        <p><a href="ControlerPedido?Op=Listar">Listar Pedidos</a></p>
-        <p><a href="ControlerPedido?Op=Nuevo">Nuevo Pedido</a></p>
+        <p><a href="/ControlerPedido?Op=Listar">Listar Pedidos</a></p>
+        <p><a href="/ControlerPedido?Op=Nuevo">Nuevo Pedido</a></p>
 
         <!-- Botón para volver al menú principal, separado y de otro color -->
         <div class="main-menu">
-            <p><a href="index.jsp">Volver al menú principal</a></p>
+            <p><a href="../index.jsp">Volver al menú principal</a></p>
         </div>
     </div>
 </body>

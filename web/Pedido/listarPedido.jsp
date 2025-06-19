@@ -1,6 +1,6 @@
 <%
     HttpSession sesion = request.getSession(false);
-    if (sesion == null || sesion.getAttribute("user") == null) {
+    if (sesion == null || sesion.getAttribute("usuario") == null) {
         response.sendRedirect("login.jsp");
         return;
     }
@@ -50,7 +50,7 @@
             </table> 
         </div>
         <div style="text-align: center;">
-            <a class="back-button" href="Clientes.jsp">Regresar</a>
+            <a class="back-button" href="Pedido/Pedidos.jsp">Regresar</a>
         </div>
     </body>
 </html>

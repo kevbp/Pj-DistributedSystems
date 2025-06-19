@@ -74,7 +74,7 @@ public class ControlerPedido extends HttpServlet {
                         Lista.add(Pedido);
                     }
                     request.setAttribute("Lista", Lista);
-                    request.getRequestDispatcher("listarPedido.jsp").forward(request, response);
+                    request.getRequestDispatcher("Pedido/listarPedido.jsp").forward(request, response);
                 }catch(SQLException ex){
                     System.out.println("Error de SQL..."+ex.getMessage());
                 }finally{
@@ -90,8 +90,9 @@ public class ControlerPedido extends HttpServlet {
                     ps= conn.prepareStatement(sql);
                     ps.setString(1, Id);
                     rs= ps.executeQuery();
-                    detallePedido DetaPed=new detallePedido();
+                    detallePedido DetaPed;
                     while(rs.next()){
+                        DetaPed=new detallePedido();
                         DetaPed.setId_Pedido(rs.getString(1));
                         DetaPed.setId_Prod(rs.getString(2));
                         DetaPed.setDescripcion(rs.getString(3));
@@ -101,7 +102,8 @@ public class ControlerPedido extends HttpServlet {
                         ListaDet.add(DetaPed);
                     }
                     request.setAttribute("Lista", ListaDet);
-                    request.getRequestDispatcher("consultarPedido.jsp").forward(request, response);
+                     System.out.println();
+                    request.getRequestDispatcher("Pedido/consultarPedido.jsp").forward(request, response);
                 }catch(SQLException ex){
                     System.out.println("Error de SQL..."+ex.getMessage());
                 } finally{
@@ -110,9 +112,9 @@ public class ControlerPedido extends HttpServlet {
                 break;                   
 
             case "Eliminar":
-                
+                break;
             case "Nuevo":
-                request.getRequestDispatcher("nuevoPedido.jsp").forward(request, response);
+                request.getRequestDispatcher("Pedido/nuevoPedido.jsp").forward(request, response);
                 break;
         }      
     }
