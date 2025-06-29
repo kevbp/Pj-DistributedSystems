@@ -1,8 +1,7 @@
-<%-- 
-    Document   : detallePedido
-    Created on : Jun 29, 2025, 4:57:25 PM
-    Author     : broncake
---%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:if test="${sessionScope.usuAut == null}">
+    <c:redirect url="../login.jsp" />
+</c:if>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
