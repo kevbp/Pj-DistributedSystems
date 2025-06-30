@@ -54,11 +54,11 @@ public class ControlPedido extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/Pedidos/buscarCliente.jsp");
                 break;
             case "Consultar":
-                String cod = request.getParameter("cod");
-                Pedido ped = ServicioPedido.consultarPedido(cod);
-                System.out.println(cli.toString());
-                request.getSession().setAttribute("cli", cli);
-                response.sendRedirect(request.getContextPath() + "/Clientes/actualizarCliente.jsp");
+//                String cod = request.getParameter("cod");
+//                Pedido ped = ServicioPedido.consultarPedido(cod);
+//                System.out.println(cli.toString());
+//                request.getSession().setAttribute("cli", cli);
+//                response.sendRedirect(request.getContextPath() + "/Clientes/actualizarCliente.jsp");
                 break;
             case "Nuevo":
                 String np = ServicioPedido.nuevoNumPedido();

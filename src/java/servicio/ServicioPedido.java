@@ -74,18 +74,18 @@ public class ServicioPedido {
         return listadoPedidos;
     }
 
-    public static Pedido consultarPedido(String numPed) {
-        Object[] ped = DaoPedido.buscar(numPed);
-        List detPed = DaoDetallePedido.buscar(numPed);
-        Pedido pedido = new Pedido(
-                ped[0].toString(),
-                ped[1].toString(),
-                ped[2].toString(),
-                ped[3].toString(),
-                detPed
-        );
-        return DaoPedido.buscar();
-    }
+//    public static Pedido consultarPedido(String numPed) {
+//        Object[] ped = DaoPedido.buscar(numPed);
+//        List detPed = DaoDetallePedido.buscar(numPed);
+//        Pedido pedido = new Pedido(
+//                ped[0].toString(),
+//                ped[1].toString(),
+//                ped[2].toString(),
+//                ped[3].toString(),
+//                detPed
+//        );
+//        return DaoPedido.buscar();
+//    }
 
     public static String crearPedido(String usnUsu, String codCli, String fec, List lisDetPed) {
         String msg = null;
