@@ -15,7 +15,7 @@
     <body>
         <h1>Menú de Pedidos</h1>
         <div>
-            <c:url var="urlListar" value="/ControlPedidos"><c:param name="op" value="Listar"/></c:url>
+            <c:url var="urlListar" value="/ControlPedido"><c:param name="op" value="ListarPedidos"/></c:url>
             <p><a href="${urlListar}">Listar Pedidos</a></p>
             <c:url var="urlNuevo" value="/ControlPedido"><c:param name="op" value="Nuevo"/></c:url>
             <p><a href="${urlNuevo}">Crear Nuevo Pedido</a></p>

@@ -20,7 +20,7 @@
                 El usuario se eliminó satisfactoriamente.
             </c:if>
         <p>
-        <c:if test="${not empty sessionScope.lista}">
+            <c:if test="${not empty sessionScope.lista}">
             <table>
                 <tr>
                     <td align="center">Codigo</td>
@@ -36,10 +36,7 @@
                         <td><input type="text" name="nom" size="25" value="${usuario.nom}" readonly/></td>
                         <td><input type="text" name="rol" size="10" value="${usuario.perfil}" readonly/></td>
                         <td><input type="text" name="est" size="10" value="${usuario.est}" readonly/></td>
-                            <c:url var="urlConsultar" value="/ControlUsuario">
-                                <c:param name="op" value="Consultar" />
-                                <c:param name="cod" value="${usuario.codUsuario}" />
-                            </c:url>
+                            <c:url var="urlConsultar" value="/ControlUsuario"><c:param name="op" value="Consultar" /><c:param name="cod" value="${usuario.codUsuario}"/></c:url>
                         <td><a class="btn btn-primary py-0" href="${urlConsultar}">Detalles</a></td>
                     </tr>
                 </c:forEach>

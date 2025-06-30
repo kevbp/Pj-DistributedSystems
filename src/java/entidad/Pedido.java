@@ -1,17 +1,38 @@
-
 package entidad;
 
 import java.util.List;
 
 public class Pedido {
+
     private String numPedido;
     private String codUsuario;
     private String codCliente;
     private String fec;
-    private DetallePedido ped;
+    private List ped;
 
-    
-    
+    public Pedido(String numPedido, String codUsuario, String codCliente, String fec, List ped) {
+        this.numPedido = numPedido;
+        this.codUsuario = codUsuario;
+        this.codCliente = codCliente;
+        this.fec = fec;
+        this.ped = ped;
+    }
+
+    public Pedido(String numPedido, String codUsuario, String codCliente, String fec) {
+        this.numPedido = numPedido;
+        this.codUsuario = codUsuario;
+        this.codCliente = codCliente;
+        this.fec = fec;
+    }
+
+    public Pedido(String numPedido, List ped) {
+        this.numPedido = numPedido;
+        this.ped = ped;
+    }
+
+    public Pedido() {
+    }
+
     public String getNumPedido() {
         return numPedido;
     }
@@ -44,13 +65,12 @@ public class Pedido {
         this.fec = fec;
     }
 
-    public DetallePedido getPed() {
+    public List getPed() {
         return ped;
     }
 
-    public void setPed(DetallePedido ped) {
+    public void setPed(List ped) {
         this.ped = ped;
     }
-    
-    
+
 }

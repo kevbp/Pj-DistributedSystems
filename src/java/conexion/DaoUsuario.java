@@ -26,6 +26,12 @@ public class DaoUsuario {
         String sql = "SELECT codUsuario, username, nom, rol, est FROM t_usuario WHERE codUsuario = '" + cod + "'";
         return Acceso.buscar(sql);
     }
+    
+    public static Object[] buscarUsn(String usn) {
+        String sql = "SELECT codUsuario, username, nom, rol, est FROM t_usuario WHERE username = '" + usn + "'";
+        System.out.println(sql);
+        return Acceso.buscar(sql);
+    }
 
     public static String crear(Usuario usu) {
         String sql = "INSERT INTO t_usuario(username, pass, nom, rol, est) VALUES "
