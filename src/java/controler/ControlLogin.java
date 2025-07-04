@@ -23,8 +23,8 @@ public class ControlLogin extends HttpServlet {
 
         if (usuAut != null){
             HttpSession session = request.getSession();
-            session.setMaxInactiveInterval(900);
-            session.setAttribute("usuAut", usuAut); 
+            session.setMaxInactiveInterval(30);
+            session.setAttribute("usuAut", usuAut);
             response.sendRedirect("index.jsp");
             System.out.println("Sesión iniciada correctamente");
         } else {

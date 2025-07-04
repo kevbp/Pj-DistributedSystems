@@ -9,8 +9,8 @@ public class DaoDetallePedido {
         return Acceso.listar(sql);
     }
 
-    public static List buscar(String numPed) {
-        String sql = "SELECT * FROM t_detalle_pedido WHERE Id_Pedido = '" + numPed + "'";
+    public static List listarBuscar(String numPed) {
+        String sql = "SELECT * FROM t_detalle_pedido WHERE Id_Pedido = '" + numPed + "' ORDER BY Id_Pedido ASC";
         return Acceso.listar(sql);
     }
 

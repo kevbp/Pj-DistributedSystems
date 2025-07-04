@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import servicio.ServicioUsuario;
 
 @WebServlet(name = "ControlUsuario", urlPatterns = {"/ControlUsuario"})
@@ -41,6 +42,13 @@ public class ControlUsuario extends HttpServlet {
             case "Nuevo":
                 response.sendRedirect(request.getContextPath() + "/GestionUsuarios/registrarUsuario.jsp");
                 break;
+            case "CerrarSesion":
+                HttpSession session = request.getSession(false);
+                if (session != null) {    
+                    session.invalidate();
+                }
+                response.sendRedirect("login.jsp");
+                break;
         }
     }
 
@@ -55,7 +63,7 @@ public class ControlUsuario extends HttpServlet {
         String rol = request.getParameter("txtRol");
         String est = request.getParameter("selEst");
 
-        String acc= request.getParameter("acc");
+        String acc = request.getParameter("acc");
         String msg;
         List lista;
 
